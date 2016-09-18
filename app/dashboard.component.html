@@ -1,0 +1,11 @@
+<h3>Top Marathons</h3>
+<marathon-search></marathon-search>
+<div class="grid grid-pad">
+    <div *ngFor="let marathon of marathons | values" (click)="gotoDetail(marathon)" class="col-1-4">
+        <div class="module hero">
+            <h4>
+                {{marathon.name | reducecharacters:25}}
+            </h4>
+        </div>       
+    </div>
+</div>

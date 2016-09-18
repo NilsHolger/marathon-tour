@@ -1,0 +1,20 @@
+<h2>My Marathons</h2>
+<div>
+    <label>Marathon name: </label><input #marathonName />
+    <label>Description: </label><input #marathonDescription />
+    <button (click)="add(marathonName.value, marathonDescription.value);marathonName.value='';marathonDescription.value=''">Add</button>
+</div>
+<ul class="marathons">
+    <li *ngFor="let marathon of marathons | values" (click)="onSelect(marathon)" [class.selected]="marathon === selectedMarathon">
+<span class="badge">{{marathon.id}} </span>{{marathon.name | reducecharacters:100}} 
+<button class="delete" (click)="delete(marathon);$event.stopPropagation()">x</button>
+    </li>
+</ul>
+<div *ngIf="selectedMarathon">
+    <h2>
+        {{selectedMarathon.name | uppercase}} is my Marathon
+    </h2>
+    <button (click)="gotoDetail()">
+        View Details
+    </button>
+</div>

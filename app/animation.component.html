@@ -1,0 +1,11 @@
+<h3>Top Marathons Animation</h3>
+<div class="grid grid-pad">
+    <div *ngFor="let marathon of marathons" (click)="gotoDetail(marathon)" class="col-1-4">
+        <div class="module hero">
+            <h4>
+                {{marathon.name}}
+            </h4>
+        </div>
+    </div>
+
+</div>
